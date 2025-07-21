@@ -299,7 +299,7 @@
     <details>
       <summary>Challenges Faced</summary>
       <ul>
-        <li>At PetSmart, connecting AWS, Azure, and on-prem systems caused a lot of routing problems — some traffic was getting lost or misrouted. I solved this by creating a standard BGP setup with Terraform that made traffic flow smoothly between all platforms. We also faced network slowdowns at over 1500 stores due to different ISPs. I fixed this by setting up smart SD-WAN policies using Viptela to prioritize important traffic like POS and voice. During Zscaler rollout, some internal apps broke due to SSL inspection. I worked with the Zscaler team to add PAC file rules that allowed the apps to work securely. Managing firewall rules across Palo Alto, ASA, and Fortinet was also messy, so I used Ansible to automate policy checks and keep things clean and consistent.</li>SS
+        <li>At PetSmart, connecting AWS, Azure, and on-prem systems caused a lot of routing problems — some traffic was getting lost or misrouted. I solved this by creating a standard BGP setup with Terraform that made traffic flow smoothly between all platforms. We also faced network slowdowns at over 1500 stores due to different ISPs. I fixed this by setting up smart SD-WAN policies using Viptela to prioritize important traffic like POS and voice. During Zscaler rollout, some internal apps broke due to SSL inspection. I worked with the Zscaler team to add PAC file rules that allowed the apps to work securely. Managing firewall rules across Palo Alto, ASA, and Fortinet was also messy, so I used Ansible to automate policy checks and keep things clean and consistent.</li>
       </ul>
     </details>
   </details>
