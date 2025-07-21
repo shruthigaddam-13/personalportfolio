@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Shruthi Gaddam | Cloud Network Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --text-color: #f1f5f9;
+      --accent: #38bdf8;
+    }
+
+    body.light-theme {
+      --bg-color: #ffffff;
+      --text-color: #1e293b;
+      --accent: #2563eb;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .theme-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .theme-switch input[type="checkbox"] {
+      width: 40px;
+      height: 20px;
+      appearance: none;
+      background-color: #ccc;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .theme-switch input[type="checkbox"]::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s;
+    }
+
+    .theme-switch input[type="checkbox"]:checked {
+      background-color: var(--accent);
+    }
+
+    .theme-switch input[type="checkbox"]:checked::before {
+      transform: translateX(20px);
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: var(--text-color);
+      margin: 0.5rem 0 1rem;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      display: block;
+      margin: 5% auto;
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .modal:target {
+      display: block;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    a.button {
+      display: inline-block;
+      background: var(--accent);
+      color: #0f172a;
+      padding: 0.75rem 1.25rem;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    details summary {
+      cursor: pointer;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    details[open] summary::after {
+      content: " ▲";
+    }
+
+    details summary::after {
+      content: " ▼";
+    }
+
+    .company-logo {
+      height: 24px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .tools-used {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      nav {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-switch">
+    <label for="themeToggle">🌙</label>
+    <input type="checkbox" id="themeToggle" onclick="document.body.classList.toggle('light-theme')">
+  </div>
+
+  <header>
+    <a href="#modal"><img src="photo.jpeg" alt="Sai Shruthi Gaddam"></a>
+    <h1>Sai Shruthi Gaddam</h1>
+    <p>Senior Cloud Network Engineer | AWS | Azure | SD-WAN | Palo Alto</p>
+    <a href="resume.pdf" download class="button">Download Resume</a>
+  </header>
+
+  <div id="modal" class="modal">
+    <a href="#" class="modal-close">&times;</a>
+    <img class="modal-content" src="photo.jpeg" alt="Profile Full View">
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#keypoints">Key Points</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I’m a Cloud Network Engineer with 8+ years of experience building secure, high-performance network solutions for global enterprises. I specialize in SD-WAN using Cisco Viptela and Versa, enterprise fabrics with Cisco ACI, and cloud security with Palo Alto NGFW and Zscaler. I’ve designed and automated hybrid cloud networks across AWS, Azure, and GCP using Terraform, Ansible, and Python to drive scalable, reliable infrastructure.
+  </p>
+</section>
+
+
+  <section id="keypoints">
+    <h2>Key Highlights</h2>
+    <ul>
+      <li>I specialize in building secure and scalable hybrid cloud networks that connect multiple cloud platforms like AWS, Azure, and GCP with on-prem environments.</li>
+      <li>I've automated entire deployment pipelines using Terraform and Ansible—this means fewer manual errors and faster delivery across multi-cloud systems.</li>
+      <li>I designed and implemented micro-segmented architectures using Cisco ACI and Palo Alto, helping companies enhance their security posture without compromising performance.</li>
+      <li>I bring deep hands-on expertise in SD-WAN technologies like Viptela and Silver Peak, which has helped reduce latency and increase uptime in enterprise networks.</li>
+      <li>My work isn't just about building networks—it's about making them intelligent, secure, and future-ready through automation, observability, and compliance.</li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li><strong>Networking:</strong> Cisco, Juniper, BGP, OSPF, MPLS, ACI, SD-WAN</li>
+      <li><strong>Cloud:</strong> AWS (Transit Gateway, VPC), Azure (VNet, ExpressRoute), GCP (VPN, NAT)</li>
+      <li><strong>Security:</strong> Palo Alto, Zscaler, Cisco ASA, VPN, NAT, ACLs</li>
+      <li><strong>Automation:</strong> Ansible, Terraform, Python, Git, Jenkins</li>
+      <li><strong>Monitoring:</strong> Splunk, CloudWatch, Nagios, Wireshark</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+  <h2>Experience</h2>
+
+  <details>
+    <summary><img class="company-logo" src="PetSmart-Logo-1992.png" alt="PetSmart Logo">PetSmart – Sr. Cloud Network Engineer (2022 – Present)</summary>
+    <p>At PetSmart, I led the design and deployment of a hybrid cloud network across AWS and Azure to support 1500+ retail locations. This included building high-availability SD-WAN connectivity using Viptela and Versa, micro-segmented Cisco ACI fabrics, and secure tunnels using Palo Alto firewalls. I implemented automated infrastructure provisioning with Terraform and Ansible, and integrated Zscaler, F5, and Panorama for centralized policy and performance management across distributed environments.</p>
+    <p class="tools-used"><strong>Tools Used:</strong> AWS, Azure, Cisco ACI, Viptela, Versa SD-WAN, Palo Alto, Ansible, Terraform, Zscaler, F5, Panorama</p>
+    <details>
+      <summary>Challenges Faced</summary>
+      <ul>
+        <li>At PetSmart, connecting AWS, Azure, and on-prem systems caused a lot of routing problems — some traffic was getting lost or misrouted. I solved this by creating a standard BGP setup with Terraform that made traffic flow smoothly between all platforms. We also faced network slowdowns at over 1500 stores due to different ISPs. I fixed this by setting up smart SD-WAN policies using Viptela to prioritize important traffic like POS and voice. During Zscaler rollout, some internal apps broke due to SSL inspection. I worked with the Zscaler team to add PAC file rules that allowed the apps to work securely. Managing firewall rules across Palo Alto, ASA, and Fortinet was also messy, so I used Ansible to automate policy checks and keep things clean and consistent.</li>SS
+      </ul>
+    </details>
+  </details>
+
+  <details>
+    <summary><img class="company-logo" src="Amex-logo.png" alt="American Express Logo">American Express – Sr. Network Engineer (2018 – 2022)</summary>
+    <p>At American Express, I was responsible for modernizing the global enterprise WAN. I migrated from legacy MPLS to Silver Peak SD-WAN, deployed ACI Spine-Leaf architecture, and built secure interconnects across AWS, Azure, and GCP. I led efforts on ExpressRoute, VPN gateway configurations, and Fortinet firewall segmentation. Additionally, I created automation playbooks to manage firewall policies and helped achieve PCI-DSS compliance through network segmentation and monitoring enhancements.</p>
+    <p class="tools-used"><strong>Tools Used:</strong> Silver Peak SD-WAN, AWS, Azure, GCP, Cisco ACI, Fortinet, ExpressRoute, Ansible, Python</p>
+    <details>
+      <summary>Challenges Faced</summary>
+      <ul>
+        <li>At American Express, we had to move from legacy MPLS to SD-WAN across multiple global sites. The migration was risky and caused routing overlaps at first. I used phased cutovers and Silver Peak policies to smooth the transition without downtime. Another challenge was connecting AWS, Azure, and GCP securely. I set up VPN tunnels, ExpressRoute links, and firewalls to make the multi-cloud setup stable and secure. We also needed to meet PCI-DSS compliance, so I automated firewall changes using Ansible and Python to reduce manual errors. Cisco ACI also had setup problems — I fixed these by checking health scores and automating rollbacks.
+
+</li>
+      </ul>
+    </details>
+  </details>
+
+  <details>
+    <summary><img class="company-logo" src="Polygon_logo.png" alt="Polygon Logo">Polygon – Network Engineer (2017 – 2018)</summary>
+    <p>At Polygon, I helped implement a scalable LAN/WAN network to support logistics operations across branch offices. I deployed Cisco and Juniper routers and switches, built VLAN trunking and access control using ACLs, and configured BGP/OSPF for stable routing. I also set up DMVPN, conducted Wireshark-based packet analysis, and supported WAN link monitoring to ensure reliable communication between remote offices and data centers.</p>
+    <p class="tools-used"><strong>Tools Used:</strong> Cisco, Juniper, VLAN, ACL, BGP, OSPF, DMVPN, Wireshark</p>
+    <details>
+      <summary>Challenges Faced</summary>
+      <ul>
+        <li>At Polygon, we were building branch networks with Cisco and Juniper gear. One issue was routing loops caused by incorrect OSPF settings, which I fixed by adjusting route costs after using Wireshark to trace the problem. The ACLs were hard to manage and confusing, so I replaced static rules with object-group ACLs to simplify everything. We also had failover delays with DMVPN, especially during link failures. I tuned the failover settings and improved response times. To catch problems earlier, I set up SNMP alerts and centralized logging so our team could react faster to network issues.
+
+</li>
+      </ul>
+    </details>
+  </details>
+</section>
+
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul>
+      <li>CCNA - Cisco Certified Network Associate</li>
+      <li>CCNA Security – Cisco Certified Network Associate Security</li>
+      <li>CCNP - Cisco Certified Network Professional</li>
+      <li>AWS - Solutions Architect Associate</li>
+      <li>PCNSE - Palo Alto Certified Network Security Engineer</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:saishruthigaddam@gmail.com">saishruthigaddam@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/sai-shruthi-gaddam" target="_blank">sai-shruthi-gaddam</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Sai Shruthi Gaddam. All rights reserved.
+  </footer>
+</body>
+</html>
